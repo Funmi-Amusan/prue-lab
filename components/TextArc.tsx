@@ -21,7 +21,7 @@ export const CurvedText = ({ text, radius, fontSize, className, isBottom = false
           return (
             <span
               key={i}
-              className={`absolute ${fontSize} font-bold font-poetsen transition-all duration-300`}
+              className={`absolute ${fontSize} font-bold font-yorkgame transition-all duration-300`}
               style={{
                 left: '50%',
                 top: '50%',

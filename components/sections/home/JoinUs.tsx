@@ -10,8 +10,8 @@ const JoinUs = () => {
         texts={['BECOME A', 'FRANCHISE OWNER']}
         className="text-primary"
         fontSize="text-7xl"
-        fontFamily="font-poetsen"
-        duration={1.2}
+        fontFamily="font-yorkgame"
+        duration={0.5}
       />
    </section>
   )

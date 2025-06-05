@@ -59,7 +59,7 @@ const Locations = () => {
 </div>
           </div>
           <div className="w-full flex justify-center items-center py-12">
-<h2 className='uppercase font-bold font-poetsen text-7xl text-center'>
+<h2 className='uppercase font-bold font-yorkgame text-7xl text-center'>
   <WordReveal text={'We are delighted to welcome you soon'} />
 </h2>
 </div>

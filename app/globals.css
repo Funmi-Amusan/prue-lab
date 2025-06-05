@@ -1,3 +1,8 @@
+@font-face {
+  font-family: YorkGame-Regular;
+  src: url('/font/YorkGame-Regular.otf');
+}
+
 @import "tailwindcss";
 
 :root {
@@ -9,7 +14,15 @@
   --peach: #ffb3b3;
   --yellow: #ffffb3;
   --font-merienda: "Merienda", cursive;
-  --font-poetsen: "Poetsen One", sans-serif;
+
+  --text-sm: 0.833vw;
+    --text-base: 1vw;
+    --text-lg: 1.25vw;
+    --text-xl: 1.676vw;
+    --text-2xl: 5.77vw;
+     --text-3xl: 6.18vw;
+     --text-4xl: 7.3vw;
+     --text-5xl: 5.2rem;
 }
 
 @theme inline {
@@ -17,11 +30,23 @@
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);
   --color-purple-300: var(--purple);
+  --color-yellow-300: var(--yellow);
+  --color-peach-300: var(--peach);
   --color-sky-300: var(--sky);
+
+  --font-yorkgame: YorkGame-Regular, sans-serif;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  --font-poetsen: var(--font-poetsen);
   --font-merienda: var(--font-merienda);
+
+--text-sm: 0.833vw;
+ --text-base: 1vw;
+ --text-lg: 1.25vw;
+ --text-xl: 1.676vw;
+ --text-2xl: 5.77vw
+ --text-3xl: 6.18vw
+ --text-4xl: 7.3vw
+ --text-5xl: 18rem
 }
 
 @media (prefers-color-scheme: dark) {
@@ -38,8 +63,8 @@ body {
 }
 
 @layer base {
-  h1, h2, p {
-    @apply text-primary;
+  h1, h2 {
+    @apply text-primary font-yorkgame font-bold;
   }
 }
 

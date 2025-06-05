@@ -24,7 +24,7 @@ const Hero = () => {
         className='flex flex-col justify-between items-center p-24'
         style={{ transform: textTransform }}
       >
-        <h1 className='text-7xl text-primary font-bold font-poetsen flex flex-col text-center uppercase'>
+        <h1 className='text-5xl text-primary  flex flex-col text-center uppercase'>
           <span>Where Every </span>
           <span className='flex items-center justify-center whitespace-nowrap'>
             Spoon 

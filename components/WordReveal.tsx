@@ -3,7 +3,7 @@ import React from 'react'
 
 const WordReveal = ({text}: {text: string}) => {
   return (
-    <span className="text-primary font-bold font-poetsen text-7xl">
+    <span className="text-primary font-bold font-yorkgame text-7xl">
             {text.split("").map((word: string, index: number) => (
               <motion.span
                 key={index}
