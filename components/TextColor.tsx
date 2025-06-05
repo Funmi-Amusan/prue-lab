@@ -1,99 +1,83 @@
-import { motion, Variants } from "framer-motion";
+'use client'
+
+import { motion } from "framer-motion";
 import clsx from "clsx";
+import React from 'react'
 
-export type FillDirection = "fromTop" | "fromBottom" | "fromLeft" | "fromRight";
-
-interface TextFillMotionProps {
-  text: string;
-  fontSize?: number | string; 
+interface UnifiedTextFillProps {
+  texts: string[];
+  fontSize?: string;
   fontFamily?: string;
-  className?: string; // Applied to the root, provides fill text color & layout (e.g., "text-blue-500 w-64")
-  strokeClassName?: string; // Optional: for stroke color (e.g., "text-red-500"). Defaults to using color from `className`.
-  strokeWidth?: number; // Default: 0.5 (to match original SVG example)
-  fillDirection?: FillDirection; // Direction of the fill animation on hover
-  duration?: number; // Duration of the fill animation
+  className?: string;
+  strokeClassName?: string;
+  strokeWidth?: number;
+  duration?: number;
 }
 
-const getClipPathVariants = (direction: FillDirection): Variants => {
-  let initialClipPath: string;
-  const hoverClipPath = "inset(0% 0% 0% 0%)"; // Fully revealed
-
-  switch (direction) {
-    case "fromTop": // Reveals from top to bottom
-      initialClipPath = "inset(0% 0% 100% 0%)"; // Starts clipped from the bottom edge, 0 height at top
-      break;
-    case "fromLeft": // Reveals from left to right
-      initialClipPath = "inset(0% 100% 0% 0%)"; // Starts clipped from the right edge, 0 width at left
-      break;
-    case "fromRight": // Reveals from right to left
-      initialClipPath = "inset(0% 0% 0% 100%)"; // Starts clipped from the left edge, 0 width at right
-      break;
-    case "fromBottom": // Reveals from bottom to top (default)
-    default:
-      initialClipPath = "inset(100% 0% 0% 0%)"; // Starts clipped from the top edge, 0 height at bottom
-      break;
-  }
-
-  return {
-    initial: { clipPath: initialClipPath },
-    hover: { clipPath: hoverClipPath },
-  };
-};
-
-export const TextFillMotion = ({
-  text,
-  fontSize,
-  fontFamily,
-  className,
+export const TextFill = ({
+  texts,
+  fontSize = "text-7xl",
+  fontFamily = "font-poetsen",
+  className = "text-purple-500",
   strokeClassName,
   strokeWidth = 0.5,
-  fillDirection = "fromBottom", 
-  duration = 0.5, 
-}: TextFillMotionProps) => {
-  const rootTextStyles = {
-    fontSize,
-    fontFamily,
-    fontWeight: "bold", 
-  };
-
+  duration = 1.2,
+}: UnifiedTextFillProps) => {
   const resolvedStrokeClassName = strokeClassName || className;
 
   return (
     <motion.div
-      className={clsx(
-        "relative inline-block group", 
-        className 
-      )}
-      style={rootTextStyles} 
+      className="relative inline-block group"
       whileHover="hover"
       initial="initial"
-      aria-label={text} 
     >
-      <span
-        className={clsx(
-          "block", 
-          resolvedStrokeClassName, 
-        )}
-        style={{
-          WebkitTextStroke: `${strokeWidth}px purple`, // CSS for text stroke
-          color: "transparent",
-        }}
-        aria-hidden="true" 
-      >
-        {text}
-      </span>
+      {/* Stroke text layers */}
+      <div className="flex flex-col items-center">
+        {texts.map((text, index) => (
+          <span
+            key={`stroke-${index}`}
+            className={clsx(
+              "block",
+              fontSize,
+              fontFamily,
+              resolvedStrokeClassName
+            )}
+            style={{
+              WebkitTextStroke: `${strokeWidth}px #1C1456`,
+              color: "transparent",
+              fontWeight: "bold",
+            }}
+            aria-hidden="true"
+          >
+            {text}
+          </span>
+        ))}
+      </div>
 
+      {/* Filled text overlay with unified animation */}
       <motion.div
-        className={clsx(
-          "absolute top-0 left-0 w-full h-full overflow-hidden", 
-          className, 
-        )}
-        variants={getClipPathVariants(fillDirection)}
+        className="absolute top-0 left-0 w-full h-full overflow-hidden"
+        variants={{
+          initial: { clipPath: "inset(100% 0% 0% 0%)" },
+          hover: { clipPath: "inset(0% 0% 0% 0%)" },
+        }}
         transition={{ duration, ease: "easeInOut" }}
       >
-        <span className="block"> 
-          {text}
-        </span>
+        <div className={clsx("flex flex-col items-center", className)}>
+          {texts.map((text, index) => (
+            <span
+              key={`fill-${index}`}
+              className={clsx(
+                "block",
+                fontSize,
+                fontFamily
+              )}
+              style={{ fontWeight: "bold" }}
+            >
+              {text}
+            </span>
+          ))}
+        </div>
       </motion.div>
     </motion.div>
   );
