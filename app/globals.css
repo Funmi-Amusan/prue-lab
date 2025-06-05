@@ -47,4 +47,9 @@ body {
  .link {
   @apply text-primary font-bold bg-background p-2 text-sm border-2 border-primary hover:bg-primary/10 transition-colors duration-300;
  }
+
+ .mask-bottom {
+   mask-image: radial-gradient(circle 100px at bottom, transparent 50%, #9333ea 51%);
+   -webkit-mask-image: radial-gradient(circle 100px at bottom, transparent 50%, #9333ea 51%);
+ }
 }

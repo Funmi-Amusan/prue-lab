@@ -4,12 +4,14 @@ import React from 'react'
 import Image from 'next/image'
 import { TbArrowBigRightLinesFilled, TbArrowBigLeftLinesFilled } from "react-icons/tb";
 import Magnet from '@/components/MagnetButton';
+import { WorldMapDemo } from '@/components/WorldMaps';
+import WordReveal from '@/components/WordReveal';
 
 const Locations = () => {
  
 
   return (
-    <section className='h-full w-screen z-50 relative overflow-x-clip '>
+    <section className='h-full w-screen bg-background z-50 relative overflow-x-clip '>
     <Image 
             src="/large-icecream.jpg" 
             alt="" 
@@ -17,8 +19,11 @@ const Locations = () => {
             height={500} 
             className='w-full h-[50vh] object-cover' 
           />
-          <div className='h-screen bg-purple-300 justify-center flex flex-col items-center'>
-<h2 className='text-5xl text-primary font-bold font-poetsen'>Best Choices</h2>
+          <div className='h-screen bg-purple-300 justify-center flex flex-col items-center relative overflow-hidden' style={{
+            borderBottomLeftRadius: '50% 33%',
+            borderBottomRightRadius: '50% 33%'
+          }}>
+ <WordReveal text={'Best choices'} />
 <div className='flex justify-center px-24 '>
 <Image 
             src="/acai.avif" 
@@ -53,6 +58,12 @@ const Locations = () => {
           />
 </div>
           </div>
+          <div className="w-full flex justify-center items-center py-12">
+<h2 className='uppercase font-bold font-poetsen text-7xl text-center'>
+  <WordReveal text={'We are delighted to welcome you soon'} />
+</h2>
+</div>
+<WorldMapDemo />
     </section>
   )
 }
