@@ -17,13 +17,13 @@ const Locations = () => {
             alt="" 
             width={500} 
             height={500} 
-            className='w-full h-[50vh] object-cover' 
+            className='w-full h-[70vh] p-4 object-cover' 
           />
-          <div className='h-screen bg-purple-300 justify-center flex flex-col items-center relative overflow-hidden' style={{
-            borderBottomLeftRadius: '50% 33%',
-            borderBottomRightRadius: '50% 33%'
+          <div className='h-screen bg-purple-300  flex flex-col items-center relative overflow-hidden' style={{
+            borderBottomLeftRadius: '40% 40%',
+            borderBottomRightRadius: '40% 40%'
           }}>
- <WordReveal text={'Best choices'} />
+ <WordReveal texts={['Best choices']} className={'text-primary font-bold font-yorkgame leading-none text-[14vw] '} />
 <div className='flex justify-center px-24 '>
 <Image 
             src="/acai.avif" 
@@ -60,12 +60,12 @@ const Locations = () => {
           </div>
           <div className="w-full flex justify-center items-center py-12">
 <h2 className='uppercase font-bold font-yorkgame text-7xl text-center'>
-  <WordReveal text={'We are delighted to welcome you soon'} />
+  <WordReveal texts={['We are delighted ', 'to welcome you soon']} className={'text-primary font-bold font-yorkgame text-7xl flex flex-col gap-4'}  />
 </h2>
 </div>
 <WorldMapDemo />
     </section>
   )
-}
 
+}
 export default Locations

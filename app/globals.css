@@ -70,7 +70,7 @@ body {
 
 @layer components {
  .link {
-  @apply text-primary font-bold bg-background p-2 text-sm border-2 border-primary hover:bg-primary/10 transition-colors duration-300;
+  @apply text-primary bg-background p-2 text-sm border-2 border-primary hover:bg-primary/10 transition-colors duration-300;
  }
 
  .mask-bottom {

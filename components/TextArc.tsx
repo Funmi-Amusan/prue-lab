@@ -1,59 +1,37 @@
-export const CurvedText = ({ text, radius, fontSize, className, isBottom = false, rotation = 0 }: { text: string, radius: number, fontSize: string, className: string, isBottom?: boolean, rotation?: number }) => {
-    const letters = Array.from(text)
-    const totalAngle = Math.PI * 0.3
-    const angleStep = totalAngle / (letters.length - 5)
-    const startAngle = isBottom ? Math.PI * 0.5 : - Math.PI * 0.5 
+import { motion, MotionValue, useTransform } from "framer-motion";
+import { CurvedText } from "./CurvedText";
+import { useEffect, useState } from "react";
 
-    return (
-      <div 
-        className={`absolute inset-0  ${className}`}
-        style={{ 
-          transform: `rotate(${-rotation}deg)`,
-          transformOrigin: 'center center'
-        }}
-      >
-        {letters.map((letter, i) => {
-          const angle = startAngle + (angleStep * i)
-          const x = Math.cos(angle) * radius
-          const y = Math.sin(angle) * radius
-          const letterRotation = (angle * 180) / Math.PI + 90
+  export const TextArc = ({ data, index, scrollOffset }: { data: { top: string, bottom: string }[], index: number, scrollOffset: MotionValue<number> }) => {
+   
+    const [windowWidth, setWindowWidth] = useState(1200)
 
-          return (
-            <span
-              key={i}
-              className={`absolute ${fontSize} font-bold font-yorkgame transition-all duration-300`}
-              style={{
-                left: '50%',
-                top: '50%',
-                transform: `translate(-50%, -50%) translate(${x}px, ${y}px) rotate(${letterRotation}deg)`,
-                transformOrigin: 'center center'
-              }}
-            >
-              {letter === ' ' ? '\u00A0' : letter}
-            </span>
-          )
-        })}
-      </div>
-    )
-  }
-  export const TextArc = ({ data, index, scrollOffset }: { data: { top: string, bottom: string }, index: number, scrollOffset: number }) => {
-    const baseRotation = scrollOffset > 1000 ? (scrollOffset * 0.09) + (index * 90) : 0;
-    const topRotation = baseRotation;
-    const bottomRotation = baseRotation;
+  useEffect(() => {
+    const updateWidth = () => setWindowWidth(window.innerWidth)
+    updateWidth()
+    window.addEventListener('resize', updateWidth)
+    return () => window.removeEventListener('resize', updateWidth)
+  }, [])
+
+  const topRotation = useTransform(scrollOffset, [0, 1], [0, 360 + (index * 90)])
+  const bottomRotation = useTransform(scrollOffset, [0, 1], [0, -360 - (index * 90)])
+
+  const rotate = useTransform(scrollOffset, [0, 1], [0, -360 + (index * 90)])
+
   
     return (
-      <div className="absolute top-2/3 w-screen origin-center h-full">
+      <motion.div style={{rotate }} className="absolute top-2/3 w-screen origin-center h-full">
         <CurvedText 
-          text={data.top.toUpperCase()}
-          radius={window.innerWidth * 0.5 } 
+          text={data[0].top.toUpperCase()}
+          radius={windowWidth * 0.5 } 
           fontSize="text-7xl" 
           className="text-primary "
           isBottom={false}
           rotation={topRotation}
         />
           <CurvedText 
-          text={data.bottom.toUpperCase()}
-          radius={window.innerWidth  * 0.45} 
+          text={data[0].bottom.toUpperCase()}
+          radius={windowWidth  * 0.45} 
           fontSize="text-7xl"
           className="text-primary top-8"
           isBottom={false}
@@ -61,7 +39,7 @@ export const CurvedText = ({ text, radius, fontSize, className, isBottom = false
         />
 
 <CurvedText 
-          text={data.top.toUpperCase()}
+          text={data[1].top.toUpperCase()}
           radius={window.innerWidth * 0.5 } 
           fontSize="text-7xl" 
           className="text-primary "
@@ -69,7 +47,7 @@ export const CurvedText = ({ text, radius, fontSize, className, isBottom = false
           rotation={bottomRotation}
         />
           <CurvedText 
-          text={data.bottom.toUpperCase()}
+          text={data[1].bottom.toUpperCase()}
           radius={window.innerWidth * 0.45} 
           fontSize="text-7xl"
           className="text-primary top-8"
@@ -77,6 +55,6 @@ export const CurvedText = ({ text, radius, fontSize, className, isBottom = false
           rotation={bottomRotation}
         />
       
-      </div>
+      </motion.div>
     );
-  };  
+  };

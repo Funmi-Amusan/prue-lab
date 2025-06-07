@@ -1,21 +1,39 @@
-import { motion } from 'framer-motion'
-import React from 'react'
+import { motion } from "framer-motion"
+import React from "react"
 
-const WordReveal = ({text}: {text: string}) => {
+const WordReveal = ({ texts, className }: { texts: string[], className?: string }) => {
   return (
-    <span className="text-primary font-bold font-yorkgame text-7xl">
-            {text.split("").map((word: string, index: number) => (
-              <motion.span
-                key={index}
-                className="inline-block"
-                initial={{ x: -10, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ duration: 0.5, delay: index * 0.04 }}
-              >
-                {word}
-              </motion.span>
-            ))}
-          </span>
+    <div className={`${className}`}>
+      {texts.map((line, lineIndex) => (
+        <motion.span
+          key={lineIndex}
+          className="block"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: lineIndex * 0.8 }}
+        >
+          {line.split(" ").map((word, wordIndex) => (
+            <span key={wordIndex} className="inline-block mr-4">
+              {word.split("").map((char, charIndex) => (
+                <motion.span
+                  key={charIndex}
+                  className="inline-block uppercase"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{
+                    duration: 0.2,
+                    delay: charIndex * 0.06 + lineIndex * 0.8,
+                    ease: "easeInOut",
+                  }}
+                >
+                  {char}
+                </motion.span>
+              ))}
+            </span>
+          ))}
+        </motion.span>
+      ))}
+    </div>
   )
 }
 
