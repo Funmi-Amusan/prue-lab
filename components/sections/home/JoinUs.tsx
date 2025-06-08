@@ -37,7 +37,7 @@ const JoinUs = () => {
   };
 
   return (
-    <section className='min-h-screen relative bg-background flex flex-col gap-4 items-center justify-center py-12'>
+    <section className='min-h-screen  bg-background flex flex-col gap-4 items-center justify-center py-24'>
       <div className='relative z-20 flex flex-col gap-4 items-center justify-center group w-full h-full'
         onMouseEnter={() => setIsHovered(true)} 
         onMouseLeave={() => setIsHovered(false)}
@@ -47,7 +47,6 @@ const JoinUs = () => {
           texts={['BECOME A', 'FRANCHISE OWNER']}
           className="text-primary"
           fontSize="text-9xl"
-          fontFamily="font-yorkgame"
           duration={0.5}
           isHovered={isHovered}
         />
@@ -65,7 +64,7 @@ const JoinUs = () => {
               exit="hidden"
               className="absolute inset-0 w-full h-full"
             >
-              <motion.div variants={itemVariants}>
+              <motion.div >
                 <Image 
                   src="/shapes/Star 5.svg" 
                   alt="splatter" 
@@ -76,7 +75,7 @@ const JoinUs = () => {
                 />
               </motion.div>
 
-              <motion.div variants={itemVariants}>
+              <motion.div >
                 <Image 
                   src="/shapes/peach-squiggle.svg" 
                   alt="squiggle" 
@@ -87,7 +86,7 @@ const JoinUs = () => {
                 />
               </motion.div>
 
-              <motion.div variants={itemVariants}>
+              <motion.div >
                 <Image 
                   src="/shapes/yellow-squiggle.svg" 
                   alt="squiggle" 
@@ -98,7 +97,7 @@ const JoinUs = () => {
                 />
               </motion.div>
 
-              <motion.div variants={itemVariants}>
+              <motion.div >
                 <Image 
                   src="/choc-waffle.jpg" 
                   alt="choc-waffle" 
@@ -108,7 +107,7 @@ const JoinUs = () => {
                 />
               </motion.div>
 
-              <motion.div variants={itemVariants}>
+              <motion.div >
                 <Image 
                   src="/fish.jpg" 
                   alt="fish ice-cream" 

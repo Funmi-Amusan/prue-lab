@@ -6,8 +6,7 @@ import React from 'react';
 
 interface UnifiedTextFillProps {
   texts: string[];
-  fontSize?: string;
-  fontFamily?: string;
+  fontSize: string;
   className?: string;
   strokeClassName?: string;
   strokeWidth?: number;
@@ -17,11 +16,9 @@ interface UnifiedTextFillProps {
 
 export const TextFill = ({
   texts,
-  fontSize = "text-9xl",
-  fontFamily = "font-yorkgame",
-  className = "text-purple-500",
+  fontSize,
+  className = "text-primary",
   strokeClassName,
-  strokeWidth = 0.5,
   duration = 1.2,
   isHovered = false, // Add isHovered prop
 }: UnifiedTextFillProps) => {
@@ -37,15 +34,13 @@ export const TextFill = ({
           <span
             key={`stroke-${index}`}
             className={clsx(
-              "block",
+              "block font-yorkgame",
               fontSize,
-              fontFamily,
               resolvedStrokeClassName
             )}
             style={{
-              WebkitTextStroke: `${strokeWidth}px #1C1456`,
+              WebkitTextStroke: `1px #1C1456`,
               color: "#fbfaf9",
-              fontWeight: "bold",
             }}
             aria-hidden="true"
           >
@@ -71,9 +66,8 @@ export const TextFill = ({
             <span
               key={`fill-yellow-${index}`}
               className={clsx(
-                "block",
+                "block font-yorkgame",
                 fontSize,
-                fontFamily
               )}
               style={{ fontWeight: "bold" }}
             >
@@ -100,9 +94,9 @@ export const TextFill = ({
             <span
               key={`fill-peach-${index}`}
               className={clsx(
-                "block",
+                "block font-yorkgame",
                 fontSize,
-                fontFamily
+                
               )}
               style={{ fontWeight: "bold" }}
             >
@@ -129,9 +123,9 @@ export const TextFill = ({
             <span
               key={`fill-sky-${index}`}
               className={clsx(
-                "block",
+                "block font-yorkgame",
                 fontSize,
-                fontFamily
+                
               )}
               style={{ fontWeight: "bold" }}
             >
@@ -158,9 +152,9 @@ export const TextFill = ({
             <span
               key={`fill-purple-${index}`}
               className={clsx(
-                "block",
+                "block font-yorkgame",
                 fontSize,
-                fontFamily
+                
               )}
               style={{ fontWeight: "bold" }}
             >
