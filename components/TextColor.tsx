@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import clsx from "clsx";
-import React, { useState } from 'react'; // Import useState
+import React from 'react'; 
 
 interface UnifiedTextFillProps {
   texts: string[];
@@ -12,26 +12,24 @@ interface UnifiedTextFillProps {
   strokeClassName?: string;
   strokeWidth?: number;
   duration?: number;
+  isHovered?: boolean; // Add isHovered prop
 }
 
 export const TextFill = ({
   texts,
-  fontSize = "text-7xl",
+  fontSize = "text-9xl",
   fontFamily = "font-yorkgame",
   className = "text-purple-500",
   strokeClassName,
   strokeWidth = 0.5,
   duration = 1.2,
+  isHovered = false, // Add isHovered prop
 }: UnifiedTextFillProps) => {
   const resolvedStrokeClassName = strokeClassName || className;
-  const [isHovered, setIsHovered] = useState(false); // State to track hover
 
   return (
     <motion.div
-      className="relative inline-block group"
-      onMouseEnter={() => setIsHovered(true)} // Set isHovered to true on mouse enter
-      onMouseLeave={() => setIsHovered(false)} // Set isHovered to false on mouse leave
-      // No need for initial, whileHover, whileTap, whileFocus on the parent for this approach
+      className="relative inline-block"
     >
       {/* Stroke text layers */}
       <div className="flex flex-col items-center">
@@ -46,7 +44,7 @@ export const TextFill = ({
             )}
             style={{
               WebkitTextStroke: `${strokeWidth}px #1C1456`,
-              color: "transparent",
+              color: "#fbfaf9",
               fontWeight: "bold",
             }}
             aria-hidden="true"
@@ -65,7 +63,7 @@ export const TextFill = ({
         transition={{
           duration,
           ease: "easeInOut",
-          delay: isHovered ? 0 : 0.15, // Delay for appearance, reversed delay for disappearance
+          delay: isHovered ? 0 : 0.12, // Delay for appearance, reversed delay for disappearance
         }}
       >
         <div className={clsx("flex flex-col items-center text-yellow-300")}>
@@ -94,7 +92,7 @@ export const TextFill = ({
         transition={{
           duration,
           ease: "easeInOut",
-          delay: isHovered ? 0.05 : 0.10, // Delay for appearance, reversed delay for disappearance
+          delay: isHovered ? 0.05 : 0.08, // Delay for appearance, reversed delay for disappearance
         }}
       >
         <div className={clsx("flex flex-col items-center text-peach-300")}>
@@ -123,7 +121,7 @@ export const TextFill = ({
         transition={{
           duration,
           ease: "easeInOut",
-          delay: isHovered ? 0.10 : 0.05, // Delay for appearance, reversed delay for disappearance
+          delay: isHovered ? 0.10 : 0.04, // Delay for appearance, reversed delay for disappearance
         }}
       >
         <div className={clsx("flex flex-col items-center text-sky-300")}>
