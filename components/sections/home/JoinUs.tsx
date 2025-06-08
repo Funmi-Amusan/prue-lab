@@ -37,8 +37,8 @@ const JoinUs = () => {
   };
 
   return (
-    <section className='min-h-screen  bg-background flex flex-col gap-4 items-center justify-center py-24'>
-      <div className='relative z-20 flex flex-col gap-4 items-center justify-center group w-full h-full'
+    <section className='min-h-screen  bg-background flex flex-col gap-4 items-center justify-center '>
+      <div className='relative z-20 flex flex-col gap-4 items-center justify-center group w-full h-full m-24'
         onMouseEnter={() => setIsHovered(true)} 
         onMouseLeave={() => setIsHovered(false)}
       >
