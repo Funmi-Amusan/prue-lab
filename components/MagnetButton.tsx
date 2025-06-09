@@ -1,7 +1,12 @@
 import { useRef, useState } from 'react'
 import { motion } from 'framer-motion';
+import { TbArrowBigLeftLinesFilled } from 'react-icons/tb';
 
-export default function Magnet({children}: {children: React.ReactNode}) {
+export default function Magnet({type,
+    title,
+    handleClick,}: {  type: string;
+        title: string;
+        handleClick: () => void;}) {
     const ref = useRef(null);
     const [position, setPosition] = useState({x:0, y:0});
     const [isHovered, setIsHovered] = useState(false);
@@ -26,8 +31,10 @@ export default function Magnet({children}: {children: React.ReactNode}) {
     };
 
     return (
-        <motion.div
-        className='rounded-full p-4 cursor-pointer relative'
+        <motion.button
+        onClick={handleClick}
+        title={title}
+        className='rounded-full h-fit p-4 cursor-pointer relative'
         ref={ref}
         onMouseMove={handleMouse}
         onMouseEnter={handleMouseEnter}
@@ -36,7 +43,7 @@ export default function Magnet({children}: {children: React.ReactNode}) {
         transition={{ type: "spring", stiffness: 50, damping: 15, mass: 0.1 }}
     >
         <motion.div
-            className="bg-white rounded-full absolute inset-0"
+            className="bg-white aspect-square rounded-full absolute inset-0"
             animate={isHovered ? 
                 { scale: 1, opacity: 1 } : 
                 { scale: 0.1, opacity: 0 }
@@ -45,9 +52,7 @@ export default function Magnet({children}: {children: React.ReactNode}) {
             style={{zIndex: 1}} 
         />
         
-        <div className="relative z-10">
-            {children}
-        </div>
-    </motion.div>
+         <TbArrowBigLeftLinesFilled className={`relative text-black z-30 ${type === 'next' ? 'rotate-180' : ''}`} size={30} /> 
+    </motion.button>
     )
 }

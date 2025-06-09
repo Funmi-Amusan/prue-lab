@@ -38,6 +38,7 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --font-merienda: var(--font-merienda);
+  --font-geist-sans: var(--font-geist-sans);
 
 --text-sm: 0.833vw;
  --text-base: 1vw;
