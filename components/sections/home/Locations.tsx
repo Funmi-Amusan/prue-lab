@@ -46,7 +46,7 @@ const Locations = () => {
           />
           </div>
           <Magnet>
-<TbArrowBigRightLinesFilled className='z-100' size={24} />
+<TbArrowBigRightLinesFilled className='z-10' size={24} />
 </Magnet>
           </div>
           <Image 

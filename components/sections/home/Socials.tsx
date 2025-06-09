@@ -19,7 +19,7 @@ const Socials = () => {
   };
 
   return (
-    <div className='w-full mt-[-100vh] h-[300vh] bg-blue-300'>
+    <div className='w-full mt-[-100vh] h-[300vh] bg-blue-300 relative'>
               <div className="h-screen flex items-center sticky z-10 top-0">
                      <InfiniteSlider >
                       <div className='flex flex-col'>
@@ -86,7 +86,7 @@ const Socials = () => {
                       </div>
   </InfiniteSlider>
                 </div>
-                <div className='h-screen flex flex-col items-center  sticky top-1/2 z-30 gap-4'>
+                <div className='h-screen flex flex-col items-center sticky top-0 justify-center z-30 gap-8'>
 <h2 className='text-7xl  text-center max-w-[30rem]'>ENJOY A FEW SCOOPS OF OUR JOYFUL JOURNEY</h2>
 <div className='relative group'>
 <button className='bg-background relative z-10 border-2 border-primary uppercase font-semibold inline-flex items-center justify-center gap-4 group-hover:translate-x-4 group-hover:-translate-y-4 transition-all duration-100 ease-in-out ' >
