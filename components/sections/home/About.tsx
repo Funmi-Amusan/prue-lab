@@ -31,9 +31,9 @@ const About = () => {
 
 
   return (
-    <section ref={containerRef} className='h-full w-screen p-24 relative overflow-clip '>
-      <div className=' flex flex-col items-center justify-between py-12 sticky top-0 z-10 h-screen '>
-      <h1 className='text-center text-xl font-medium  uppercase '>
+    <section ref={containerRef} className='h-full w-screen p-12 md:p-24 relative overflow-clip '>
+      <div className=' flex flex-col items-center justify-between py-12 sticky top-0 z-10 md:h-screen h-[50vh] '>
+      <h1 className='text-center text-2xl md:text-xl font-medium font-sans uppercase '>
         How ice cream should be today
       </h1>
             <TextArc data={textData} index={0} scrollOffset={scrollYProgress} />

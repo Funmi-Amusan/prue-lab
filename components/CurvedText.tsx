@@ -3,30 +3,29 @@ import { MotionValue } from "framer-motion"
 export const CurvedText = ({ 
   text, 
   radius, 
-  fontSize, 
   className, 
   isBottom = false, 
   rotation = 0,
-  letterSpacing = 45
+  letterSpacing = 15
 }: { 
   text: string, 
   radius: number, 
-  fontSize: string, 
-  className: string, 
+  className?: string, 
   isBottom?: boolean, 
   rotation?: number | MotionValue<number>,
   letterSpacing?: number
 }) => {
     
   const letters = Array.from(text)
-  const letterSpacingAngle = letterSpacing / radius
+  const letterSpacingAngle = letterSpacing / radius 
   const totalAngle = letterSpacingAngle * (letters.length - 1) 
   const startAngle = isBottom 
     ? Math.PI * 0.5 - totalAngle / 2  
     : -Math.PI * 0.5 - totalAngle / 2 
 
   return (
-    <div 
+    <div
+      aria-label={text}
       className={`absolute inset-0 ${className}`}
       style={{ 
         transform: `rotate(${-rotation}deg)`,
@@ -42,7 +41,7 @@ export const CurvedText = ({
         return (
           <span
             key={i}
-            className={`absolute ${fontSize} font-yorkgame transition-all duration-300`}
+            className={`absolute text-4xl md:text-[4.5rem] text-primary font-yorkgame transition-all duration-300`}
             style={{
               left: '50%',
               top: '50%',

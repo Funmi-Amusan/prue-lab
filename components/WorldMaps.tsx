@@ -11,11 +11,11 @@ export function WorldMapDemo() {
             start: {
               lat: 64.2008,
               lng: -149.4937,
-            }, // Alaska (Fairbanks)
+            }, 
             end: {
               lat: 34.0522,
               lng: -118.2437,
-            }, // Los Angeles
+            }, 
           },
           {
             start: { lat: 64.2008, lng: -149.4937 }, // Alaska (Fairbanks)

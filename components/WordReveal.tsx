@@ -7,7 +7,7 @@ const WordReveal = ({ texts, className }: { texts: string[], className?: string 
       {texts.map((line, lineIndex) => (
         <motion.span
           key={lineIndex}
-          className="block"
+          className= {`block text-center `}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: lineIndex * 0.8 }}
