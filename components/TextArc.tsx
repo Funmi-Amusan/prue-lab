@@ -33,7 +33,7 @@ import { useEffect, useState } from "react";
           text={data[0].bottom.toUpperCase()}
           radius={windowWidth  * 0.45} 
           fontSize="text-7xl"
-          className="text-primary top-8"
+          className="text-primary top-4"
           isBottom={false}
           rotation={topRotation}
         />
@@ -50,7 +50,7 @@ import { useEffect, useState } from "react";
           text={data[1].bottom.toUpperCase()}
           radius={window.innerWidth * 0.45} 
           fontSize="text-7xl"
-          className="text-primary top-8"
+          className="text-primary top-4"
           isBottom={true}
           rotation={bottomRotation}
         />

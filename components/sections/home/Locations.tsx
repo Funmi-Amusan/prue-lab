@@ -50,6 +50,7 @@ const Locations = () => {
       
       <div className="w-full flex justify-center items-center py-12">
         <h2 className='uppercase font-bold font-yorkgame text-7xl text-center'>
+          
           <WordReveal texts={['We are delighted ', 'to welcome you soon']} className={'text-primary font-bold font-yorkgame text-7xl flex flex-col gap-4'} />
         </h2>
       </div>

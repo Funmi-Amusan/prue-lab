@@ -8,7 +8,7 @@ import Socials from "@/components/sections/home/Socials";
 
 export default function Home() {
   return (
- <main>
+ <main className="overflow-x-clip">
   <Header />
   <Hero />
   <About />

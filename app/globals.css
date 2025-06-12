@@ -48,6 +48,7 @@
  --text-3xl: 6.18vw
  --text-4xl: 7.3vw
  --text-5xl: 18rem
+
 }
 
 @media (prefers-color-scheme: dark) {
@@ -76,15 +77,6 @@ body {
   color: #1E1F23;
 }
 
-/* .fun-hover {
-  background-image: linear-gradient(to right, #fefe59 50%, #fefe59 50%);
-  border-radius: 20%;
-  padding: 1rem;
-  background-position: 0;
-  background-size: 100%;
-} */
-
-
 .container {
   font-family: 'Bangers';
   font-size: 10px;
@@ -96,6 +88,20 @@ body {
   content: "";
   display: table;
   clear: both;
+}
+
+.grid-background {
+  --grid-size: 1.2rem;
+  --grid-strength: 2px;
+  --grid-dash: 0px;
+  --grid-gap: 0px;
+  --grid-color: #1c1456;
+  --paper-color: #fbfaf9;
+  background-color: #fbfaf9;
+  background-image: linear-gradient(#1c1456 2px, transparent 2px), linear-gradient(to right, #1c1456 2px, #fbfaf9 2px);
+  background-size: 1.6rem 1.6rem;
+  border: 2px solid #1c1456;
+  background-position: -2px -4px;
 }
 
 @layer base {

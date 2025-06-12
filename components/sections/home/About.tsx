@@ -1,5 +1,6 @@
 'use client'
 
+import GridBackgroundLink from '@/components/GridBackgroundLink'
 import { TextArc } from '@/components/TextArc'
 import { useScroll } from 'framer-motion'
 import Image from 'next/image'
@@ -32,11 +33,14 @@ const About = () => {
   return (
     <section ref={containerRef} className='h-full w-screen p-24 relative overflow-clip '>
       <div className=' flex flex-col items-center justify-between py-12 sticky top-0 z-10 h-screen '>
-      <h1 className='text-center text-xl font-medium font-merienda  uppercase '>
+      <h1 className='text-center text-xl font-medium  uppercase '>
         How ice cream should be today
       </h1>
             <TextArc data={textData} index={0} scrollOffset={scrollYProgress} />
-      <Link href="/about" className='link sticky top-20 '>About us</Link>
+            <GridBackgroundLink>
+            <Link href="/about" className='link sticky top-20 '>About us</Link>
+</GridBackgroundLink>
+   
       </div>
 
       {/* Images Grid */}
